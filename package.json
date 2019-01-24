@@ -1,0 +1,16 @@
+{
+  "name": "webcoffeemail",
+  "version": "0.0.1",
+  "description": "associated with IBMs Watson API",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "brendan de faria",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "*",
+    "googleapis": "*",
+    "python-shell": "*"
+  }
+}
