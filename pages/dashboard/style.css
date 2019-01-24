@@ -15,11 +15,28 @@ details {
 
 summary {
 	padding: 18px;
-	background-color: #eee;
+	border: 1px solid #ff636b;
+	/* background-color: #eee; */
 }
 
-p {
+.from {
+	color:black;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
+}
+
+.body {
   background-color: white;
+	padding-left: 3%;
+	padding-right: 3%;
+	padding-bottom: 3%;
+}
+
+.sentiment {
+	padding-left: 3%;
+	padding-right: 3%;
+	padding-bottom: 3%;
 }
 
 details summary::-webkit-details-marker {

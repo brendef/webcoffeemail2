@@ -1,6 +1,7 @@
 # imports
 import imaplib, email, os, time, sys, json
 from textblob import TextBlob
+from email.parser import HeaderParser
 from py_functions import *
 
 # email credidentials
@@ -14,6 +15,12 @@ program_running = True
 # stores email in json format
 emailjson = {}
 
+# get email address of person who sent the email
+def get_sender(id):
+    result, data = con.uid("FETCH",id,"(BODY[HEADER.FIELDS (FROM)])")
+    sender = data[0][1]
+    return sender
+
 # get the emails subject line
 def get_header(id):
     result, data = con.uid("FETCH",id,"(BODY[HEADER.FIELDS (SUBJECT)])")
@@ -26,6 +33,7 @@ def get_mail(mail_uid):
     raw = email.message_from_string(data[0][1])
     text = get_body(raw)
     emailjson['email'] = {
+        'from': str(get_sender(mail_uid)),
         'header': str(get_header(mail_uid)),
         'body':  str(get_body(raw)),
         'sentiment': str(analyse_text(text))
