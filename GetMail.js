@@ -10,7 +10,7 @@ const options = {
 const card = (from, header, body, sentiment, border) => {
   return `
       <details>
-        <summary ${border}>
+        <summary style="border: 1px solid ${color};>
           <span class="from">${from}</span>
           <br>
           ${header}
@@ -32,21 +32,21 @@ const processMail = (message) => {
 
   let border
   if (emailjson.email.sentiment > 0) {
-    border = 'style="border: 1px solid green;"'
+    color = 'green'
   } else if (emailjson.email.sentiment < 0 ) {
-    border = 'style="border: 1px solid #ff636b;"'
+    color = '#ff636b'
   } else {
-    border = 'style="border: 1px solid yellow;"'
+    color = 'yellow'
   }
 
   theParent = document.getElementById("mail")
-  theKid = document.createElement("span")
+  theKid = document.createElement("div")
   theKid.innerHTML = card(
     emailjson.email.from,
     emailjson.email.header,
     emailjson.email.body,
     emailjson.email.sentiment,
-    border
+    color
   )
   theParent.appendChild(theKid)
   theParent.insertBefore(theKid, theParent.firstChild)
