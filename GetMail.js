@@ -1,5 +1,11 @@
 const {PythonShell} = require('python-shell')
 
+const badPopup = {
+    title: 'Negative Message Alert',
+    body: 'Coffee Ai has detected a message that could be potentially negative',
+    icon: 'warning.png'
+}
+
 const options = {
   pythonPath: 'python',
   mode: 'text',
@@ -50,4 +56,11 @@ const processMail = (message) => {
   )
   theParent.appendChild(theKid)
   theParent.insertBefore(theKid, theParent.firstChild)
+  alertSentiment(emailjson)
+}
+
+const alertSentiment = (emailjson) => {
+  if (emailjson.email.sentiment < 0) {
+    const popup = new window.Notification(badPopup.title, badPopup)
+  }
 }

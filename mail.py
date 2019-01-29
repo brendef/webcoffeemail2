@@ -5,9 +5,9 @@ from email.parser import HeaderParser
 from py_functions import *
 
 # email credidentials
-user = 'brendan.defaria@gmail.com'
-password = 'W0ch4_etppe#'
-imap_url = 'imap.gmail.com'
+user = ''
+password = ''
+imap_url = ''
 
 # becomes true when the user presses start
 program_running = True
