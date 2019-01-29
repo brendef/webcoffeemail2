@@ -29,7 +29,10 @@ const card = (from, header, body, sentiment, border) => {
 
 const get = new PythonShell('mail.py', options)
 get.on('message',(message) => {
-  processMail(message)
+  let emailstring = message
+  emailjson = JSON.parse(emailstring)
+  processMail(message, emailjson)
+  alertSentiment(emailjson)
 })
 
 const processMail = (message) => {
@@ -56,7 +59,6 @@ const processMail = (message) => {
   )
   theParent.appendChild(theKid)
   theParent.insertBefore(theKid, theParent.firstChild)
-  alertSentiment(emailjson)
 }
 
 const alertSentiment = (emailjson) => {

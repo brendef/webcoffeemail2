@@ -1,5 +1,12 @@
 // Initialize Firebase
-// Insert Firebase Config Here 
+const config = {
+  apiKey: "AIzaSyB5gHyVWGPEivtJicquZyq2mFM0eN-ZLLQ",
+  authDomain: "watson-mail.firebaseapp.com",
+  databaseURL: "https://watson-mail.firebaseio.com",
+  projectId: "watson-mail",
+  storageBucket: "",
+  messagingSenderId: "674603498961"
+};
 firebase.initializeApp(config)
 
 const signin = document.getElementById('signin')

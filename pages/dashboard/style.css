@@ -2,6 +2,13 @@
 	text-align: center;
 }
 
+.titlebar {
+	display: grid;
+	grid-template-columns: 10fr 1fr;
+  grid-template-areas:
+		"title add-button"
+}
+
 details {
 	color: #444;
   cursor: pointer;
@@ -13,9 +20,15 @@ details {
 	font-size: 15px;
 }
 
+.add-button {
+	font-size: 20px;
+	padding-top: 20px;
+}
+
 summary {
 	padding: 18px;
-	/* background-color: #eee; */
+
+
 }
 
 .from {
